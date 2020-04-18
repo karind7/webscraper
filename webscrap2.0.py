@@ -66,47 +66,7 @@ class course:
         courses_urls_list = [i["href"] for i in required_courses.select("a")]
         courses = [course(courses_urls_list[i]) for i in range(len(courses_urls_list))]
         return courses
-
-    # def course_url2prerequisites(self):
-    #     page_soup = pageSoup(self.url)
-    #     required_courses = page_soup.find('div', {'id': 'content'}).select("p")[3]
-    #     requirment = required_courses.text.strip()
-    #     requirment = "".join([i for i in requirment if ord(i) < 2000])
-    #     return requirment
-    #
-    # def prerequisites2parts(self):
-    #     prerequisite = None
-    #     required_course = None
-    #     recommended_course = None
-    #     prerequisites = self.course_url2prerequisites().split(".")
-    #     for i in prerequisites:
-    #         if "תנאי קבלה" in i:
-    #             prerequisite = i
-    #         if "ידע קודם דרוש" in i:
-    #             required_course = i
-    #         if "ידע קודם מומלץ" in i:
-    #             recommended_course = i
-    #
-    #     return prerequisite, required_course, recommended_course
-    #
-    # def prerequisite(self):
-    #     prerequisite = self.prerequisites2parts()[0]
-    #
-    # def required_course(self):
-    #     required_course = self.prerequisites2parts()[1]
-    #     required_course = required_course.replace("ידע קודם דרוש:", "").replace("(", "").replace(")", "").replace("הקורסים", "").strip()
-    #     required_course = required_course.split(",")
-    #     required_course_log = [i.split("או") for i in required_course]
-    #     # for i in range(len(required_course_log)):
-    #     #     for l in range(len(i)):
-    #
-    #
-    #
-    #
-    #     print(required_course_log)
-    #
-    # def recommended_course(self):
-    #     recommended_course = self.prereqisites2parts()[2]
+    recommended_course = self.prereqisites2parts()[2]
 
 
 courses = get_courses_links(r"https://academic.openu.ac.il/CS/computer/program/AF.aspx")
